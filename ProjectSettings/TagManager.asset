@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - GridMap
+  - "Trang tr\xED"
+  - Background
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1104293705
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2351020371
+    locked: 0
+  - name: "Trang tr\xED"
+    uniqueID: 3661729911
+    locked: 0
+  - name: GridMap
+    uniqueID: 811951423
     locked: 0
