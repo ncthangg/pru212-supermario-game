@@ -45,7 +45,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: 
     uniqueID: 2351020371
     locked: 0
   - name: "Trang tr\xED"
@@ -53,4 +53,7 @@ TagManager:
     locked: 0
   - name: GridMap
     uniqueID: 811951423
+    locked: 0
+  - name: Player
+    uniqueID: 3572298323
     locked: 0

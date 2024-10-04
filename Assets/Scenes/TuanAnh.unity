@@ -2130,7 +2130,8 @@ GameObject:
   - component: {fileID: 1134366270}
   - component: {fileID: 1134366269}
   - component: {fileID: 1134366268}
-  m_Layer: 9
+  - component: {fileID: 1134366273}
+  m_Layer: 0
   m_Name: Mario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2150,9 +2151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!50 &1134366269
 Rigidbody2D:
   serializedVersion: 4
@@ -2212,7 +2210,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0011565387, y: -0.07214879}
+  m_Offset: {x: -0.0053761266, y: -0.0002898872}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2223,7 +2221,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.17098045, y: 0.19588296}
+  m_Size: {x: 0.18404579, y: 0.3396008}
   m_EdgeRadius: 0
 --- !u!212 &1134366271
 SpriteRenderer:
@@ -2263,10 +2261,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1511082871
-  m_SortingLayer: 0
+  m_SortingLayerID: -722668973
+  m_SortingLayer: 4
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1101034896, guid: ca4938fe2bf8d5445836ae7ab6857002, type: 3}
+  m_Sprite: {fileID: 1023556946, guid: ca4938fe2bf8d5445836ae7ab6857002, type: 3}
   m_Color: {r: 0.98490566, g: 0.98490566, b: 0.98490566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2286,12 +2284,33 @@ Transform:
   m_GameObject: {fileID: 1134366267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.36, y: -3.32, z: 0}
+  m_LocalPosition: {x: -10.28, y: -3.49, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1134366273
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134366267}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: edcfdd4bbcf34194fb61b9a81f4ce5e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1195056426
 GameObject:
   m_ObjectHideFlags: 0
@@ -5281,6 +5300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639371295}
   - component: {fileID: 1639371296}
+  - component: {fileID: 1639371297}
   m_Layer: 0
   m_Name: Terrain (16x16) 1_16
   m_TagString: Untagged
@@ -5355,6 +5375,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1639371297
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639371294}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.1590909, y: 1.0454545}
+    newSize: {x: 0.1590909, y: 1.0454545}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1590909, y: 1.0454545}
+  m_EdgeRadius: 0
 --- !u!1 &1669571921
 GameObject:
   m_ObjectHideFlags: 0
