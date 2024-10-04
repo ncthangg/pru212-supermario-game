@@ -2,53 +2,80 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    private Rigidbody2D body;
-    private Animator anim;
-    private bool grounded;
+    private Camera camera;
+    private Rigidbody2D rigidbody;
+
+    private Vector2 velocity;
+    private float inputAxis;
+
+    public float moveSpeed = 8f;
+    
+    //Jump config
+    public float maxJumpHeight = 5f;
+    public float maxJumpTime = 1f;
+    
+    public float jumpForce  => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+    public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
+    public bool grounded {  get; private set; }
+    public bool jumping { get; private set; }
 
     private void Awake()
     {
-        //Grab references for rigidbody and animator from object
-        body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        camera = Camera.main;
     }
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        HorizontalMovement();
 
-        //Flip charater when moving left-right
-        if (horizontalInput > 0.01f)
+        grounded = rigidbody.Raycast(Vector2.down);
+
+        if (grounded)
         {
-            transform.localScale = new Vector3(3, 3, 3);
-        }
-        else if (horizontalInput < -0.01f)
-        {
-            transform.localScale = new Vector3(-3, 3, 3);
+            GroundedMovement();
         }
 
-        //Jumping 
-        if (Input.GetKey(KeyCode.W) && grounded)
-        {
-            Jump();
-        }
-
-        //Set animator parameter
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", grounded);
+        ApplyGravity();
     }
 
-    private void Jump()
+    private void HorizontalMovement()
     {
-        body.velocity = new Vector2(body.velocity.x, 5.5f);
-        grounded = false;
+        inputAxis = Input.GetAxis("Horizontal");
+        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void GroundedMovement()
     {
-        if (collision.gameObject.tag == "Ground")
-            grounded = true;
+        velocity.y = Mathf.Max(velocity.y, 0f);
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumping = velocity.y > 0f;
+
+            velocity.y = jumpForce;
+            jumping = true;
+        }
+    }
+
+    private void ApplyGravity()
+    {
+        bool falling = velocity.y < 0f || !Input.GetButton("Jump");
+        float mutiplier = falling ? 2f : 1f;
+
+        velocity.y += gravity * mutiplier * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, gravity /2f);
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 position = rigidbody.position;
+        position += velocity * Time.fixedDeltaTime;
+
+        //Fix can't be out of boundd
+        Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
+        Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        position.x = Mathf.Clamp(position.x, leftEdge.x + 0.2f, rightEdge.x + 0.2f);
+
+        rigidbody.MovePosition(position);
     }
 }
