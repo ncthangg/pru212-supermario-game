@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class Extensions
 {
-    private static LayerMask layerMask = LayerMask.GetMask("Default");
+    private static LayerMask layerMask = LayerMask.GetMask("Ground");
 
     // Checks if the rigidbody is colliding with an object in a given direction.
     // For example, if you want to check if the player is touching the ground,
@@ -15,11 +15,13 @@ public static class Extensions
             return false;
         }
 
-        float radius = 0.14f;
-        float distance = -0.35f;
+        float radius = 0.1f;
+        float distance = 0.8f;
 
-        RaycastHit2D hit = Physics2D.CircleCast(rigidbody.position, radius, direction.normalized, distance, layerMask);
+        RaycastHit2D hit = Physics2D.CircleCast(rigidbody.position, radius, direction, distance, layerMask);
+        Debug.DrawRay(rigidbody.position, direction * distance, hit ? Color.green : Color.red);
         return hit.collider != null && hit.rigidbody != rigidbody;
+
     }
 
     // Checks if the transform is facing another transform in a given direction.

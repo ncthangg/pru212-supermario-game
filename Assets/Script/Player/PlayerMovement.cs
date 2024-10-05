@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Camera camera;
-    private Rigidbody2D rigidbody;
+    private Camera playerCam;
+    private Rigidbody2D rb;
 
     private Vector2 velocity;
     private float inputAxis;
 
-    public float moveSpeed = 8f;
+    public float moveSpeed = 80f;
     
     //Jump config
     public float maxJumpHeight = 5f;
@@ -21,15 +21,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-        camera = Camera.main;
+        rb = GetComponent<Rigidbody2D>();
+        playerCam = Camera.main;
     }
 
     private void Update()
     {
         HorizontalMovement();
 
-        grounded = rigidbody.Raycast(Vector2.down);
+        grounded = rb.Raycast(Vector2.down);
 
         if (grounded)
         {
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void HorizontalMovement()
     {
         inputAxis = Input.GetAxis("Horizontal");
-        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
+        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.timeScale);
     }
 
     private void GroundedMovement()
@@ -59,23 +59,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyGravity()
     {
+        // Check if falling
         bool falling = velocity.y < 0f || !Input.GetButton("Jump");
-        float mutiplier = falling ? 2f : 1f;
+        float multiplier = falling ? 2f : 1f;
 
-        velocity.y += gravity * mutiplier * Time.deltaTime;
-        velocity.y = Mathf.Max(velocity.y, gravity /2f);
+        // Apply gravity and terminal velocity
+        velocity.y += gravity * multiplier * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, gravity / 2f);
     }
+
 
     private void FixedUpdate()
     {
-        Vector2 position = rigidbody.position;
+        Vector2 position = rb.position;
         position += velocity * Time.fixedDeltaTime;
 
         //Fix can't be out of boundd
-        Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
-        Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        Vector2 leftEdge = playerCam.ScreenToWorldPoint(Vector2.zero);
+        Vector2 rightEdge = playerCam.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         position.x = Mathf.Clamp(position.x, leftEdge.x + 0.2f, rightEdge.x + 0.2f);
 
-        rigidbody.MovePosition(position);
+        rb.MovePosition(position);
     }
 }
