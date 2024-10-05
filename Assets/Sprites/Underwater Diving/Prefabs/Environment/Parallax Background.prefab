@@ -126,7 +126,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4965462594705250}
-  - component: {fileID: 114664790084984662}
   m_Layer: 0
   m_Name: Parallax Background
   m_TagString: Untagged
@@ -152,20 +151,6 @@ Transform:
   - {fileID: 4251170480280206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114664790084984662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251893284373276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8bf38aba251148898b4be0f47f9cdb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundSize: 9.6
-  parallaxSpeed: 0.3
 --- !u!1 &1349301628767024
 GameObject:
   m_ObjectHideFlags: 0
