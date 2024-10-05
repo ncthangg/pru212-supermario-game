@@ -43,7 +43,9 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, 5.5f);
+        anim.SetTrigger("jump");
         grounded = false;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
