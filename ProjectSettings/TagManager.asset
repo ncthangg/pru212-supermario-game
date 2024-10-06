@@ -45,14 +45,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: "Trang tr\xED"
+  - name: "Trang tr\xED_down"
     uniqueID: 3661729911
-    locked: 0
-  - name: GridMap
-    uniqueID: 811951423
     locked: 0
   - name: Player
     uniqueID: 3572298323
+    locked: 0
+  - name: "Trang tr\xED_up"
+    uniqueID: 2433506541
+    locked: 0
+  - name: GridMap
+    uniqueID: 811951423
     locked: 0
   - name: UI
     uniqueID: 2351020371
