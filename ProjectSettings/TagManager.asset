@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - GridMap
@@ -45,12 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 2351020371
-    locked: 0
   - name: "Trang tr\xED"
     uniqueID: 3661729911
     locked: 0
   - name: GridMap
     uniqueID: 811951423
+    locked: 0
+  - name: Player
+    uniqueID: 3572298323
+    locked: 0
+  - name: UI
+    uniqueID: 2351020371
     locked: 0
