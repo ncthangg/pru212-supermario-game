@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< Updated upstream
   tags: []
+=======
+  tags:
+  - Ground
+  - Enemy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -53,3 +59,15 @@ TagManager:
   - name: GridMap
     uniqueID: 811951423
     locked: 0
+<<<<<<< Updated upstream
+=======
+  - name: UI
+    uniqueID: 2351020371
+    locked: 0
+  - name: Enemy
+    uniqueID: 922728931
+    locked: 0
+  - name: Coin
+    uniqueID: 2043058887
+    locked: 0
+>>>>>>> Stashed changes
