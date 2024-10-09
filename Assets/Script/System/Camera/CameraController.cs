@@ -22,18 +22,16 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float cameraSpeed;
     private float lookAhead = 0;
 
-    public Transform mapBounds;  
-    private Vector3 minLimit, maxLimit;  
+    public Transform mapBounds;
+    private Vector3 minLimit, maxLimit;
 
-    // void Awake()
-    // {
-    //     player = FindAnyObjectByType<Player>().gameObject.transform;
-    // }
     void Start()
     {
         BoxCollider2D bounds = mapBounds.GetComponent<BoxCollider2D>();
         minLimit = bounds.bounds.min;
         maxLimit = bounds.bounds.max;
+
+        player = FindAnyObjectByType<Player>().gameObject.transform;
     }
 
     private void Update()
