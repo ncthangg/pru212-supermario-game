@@ -7,10 +7,15 @@ public class Player : MonoBehaviour
     private Animator anim;
     private SpriteRenderer _sprite;
 
+    [Header("UI Manager")]
+    private UIManager uiManager;
+
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void StopMovement()

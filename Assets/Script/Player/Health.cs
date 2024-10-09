@@ -8,13 +8,15 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
-    public Healthbar healthBar;
+    protected Healthbar healthBar;
+    protected UIManager uiManager;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         healthBar = FindObjectOfType<Healthbar>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void TakeDamage(float damage)
@@ -35,6 +37,7 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("dead");
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
+                uiManager.GameOver();
             }
         }
     }
