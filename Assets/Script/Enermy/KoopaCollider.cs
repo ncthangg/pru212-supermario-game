@@ -11,12 +11,6 @@ public class KoopaCollision : MonoBehaviour
     private KoopaMovement koopaMovement;
     private Rigidbody2D rb;
 
-    void Start()
-    {
-        koopaMovement = GetComponent<KoopaMovement>();
-        rb = GetComponent<Rigidbody2D>();
-    }
-
     // Hàm được gọi khi nhảy lên đầu Koopa
     public void OnHeadJump(GameObject player)
     {
@@ -38,26 +32,22 @@ public class KoopaCollision : MonoBehaviour
 
     void EnterShell()
     {
-        Debug.Log("Koopa chuyển sang trạng thái shell");
         isShell = true;
+        Animator.SetBool("IsShell", true);
 
         // Ngừng di chuyển Koopa
+        KoopaMovement koopaMovement = GetComponent<KoopaMovement>();
         if (koopaMovement != null)
         {
-            koopaMovement.isShell = true;  // Thay đổi trạng thái trong KoopaMovement
-        }
-
-        // Kích hoạt chuyển đổi hoạt ảnh sang shell
-        if (Animator != null)
-        {
-            Animator.SetBool("IsShell", true);
+            koopaMovement.enabled = false; 
         }
 
         // Tạm dừng tất cả các tác động vật lý của Koopa
+        rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = Vector2.zero;  // Dừng chuyển động
-            rb.isKinematic = true;       // Ngừng vật lý tạm thời
+            rb.velocity = Vector2.zero;  // Dừng chuyển động ngay lập tức
+            rb.isKinematic = true;       // Ngừng vật lý tạm thời để Koopa không bị rơi
         }
 
         // Shell sẽ biến mất sau một thời gian
@@ -65,7 +55,6 @@ public class KoopaCollision : MonoBehaviour
     }
 
 
-    // Hủy đối tượng Koopa sau một khoảng thời gian
     void DestroyBot()
     {
         Destroy(gameObject);
