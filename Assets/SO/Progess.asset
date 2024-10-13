@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc7bb9b11322594aa4a93314469b467, type: 3}
   m_Name: Progess
   m_EditorClassIdentifier: 
-  lastPlayedMapIndex: 1
+  lastPlayedMapIndex: 0

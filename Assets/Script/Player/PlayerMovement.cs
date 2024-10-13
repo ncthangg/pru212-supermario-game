@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * Time.timeScale, body.velocity.y);
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         //Flip charater when moving left-right
         if (horizontalInput > 0.01f)
@@ -42,10 +42,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        body.velocity = new Vector2(body.velocity.x * Time.timeScale, 5.5f * Time.timeScale);
+        body.velocity = new Vector2(body.velocity.x, 7f);
         anim.SetTrigger("jump");
         grounded = false;
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
