@@ -7208,6 +7208,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2641140649964377002, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 610
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641140649964377002, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 285
+      objectReference: {fileID: 0}
     - target: {fileID: 3009472573631937933, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
       propertyPath: m_Camera
       value: 
@@ -7295,6 +7303,14 @@ PrefabInstance:
     - target: {fileID: 3623044137835169164, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359736600567524113, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359736600567524113, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1120
       objectReference: {fileID: 0}
     - target: {fileID: 9078596305327338246, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
       propertyPath: m_Camera
