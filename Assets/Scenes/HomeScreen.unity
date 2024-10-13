@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2624017008875266938, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1776135048}
     - target: {fileID: 5290609822779414745, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
       propertyPath: m_Name
       value: HomeScreen
