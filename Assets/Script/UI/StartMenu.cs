@@ -17,11 +17,15 @@ public class StartMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("ThienPTB");
+        SceneManager.LoadScene("Lv1");
     }
     public void QuitGame()
     {
         Debug.Log("Quit Game....");
         Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

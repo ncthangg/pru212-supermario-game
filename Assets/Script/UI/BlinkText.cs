@@ -20,7 +20,7 @@ public class BlinkText : MonoBehaviour
         if (Input.anyKeyDown)
         {
             // Thực hiện hành động tiếp theo khi người chơi nhấn phím
-            uiManager.Menu();
+            uiManager.Home();
         }
     }
 

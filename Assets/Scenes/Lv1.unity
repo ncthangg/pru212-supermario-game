@@ -7200,10 +7200,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 21717156982450621, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 830908534950583415, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7216,10 +7212,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1718541531}
-    - target: {fileID: 3009472573631937933, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3389511886261231823, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7250,18 +7242,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3389511886261231823, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389511886261231823, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389511886261231823, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389511886261231823, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3389511886261231823, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
@@ -7316,10 +7296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4651097402275333998, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 9078596305327338246, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1718541531}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7554,5 +7534,5 @@ SceneRoots:
   - {fileID: 1810511473}
   - {fileID: 6116248428598209740}
   - {fileID: 595917998}
-  - {fileID: 2073853984}
   - {fileID: 655831229}
+  - {fileID: 2073853984}
