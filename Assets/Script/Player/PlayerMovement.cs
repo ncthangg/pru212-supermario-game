@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * Time.timeScale, body.velocity.y);
 
         //Flip charater when moving left-right
         if (horizontalInput > 0.01f && grounded && runningSoundCoroutine == null)
