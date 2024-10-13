@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class GoombaCollision : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class GoombaCollision : MonoBehaviour
     private bool isDead = false;
     bool Dead = false;
     private GoombaCollision goombaCollision;
+    private bool canCollide = true; // Cờ để kiểm tra xem có thể tính va chạm hay không
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,6 +24,16 @@ public class GoombaCollision : MonoBehaviour
                 PlayerBounce(collision.gameObject);
                 BotDie();
             }
+            else
+            {
+                // Nếu không phải va chạm từ trên xuống thì trừ máu của Player
+                Health health = collision.gameObject.GetComponent<Health>();
+                if (health != null)
+                {
+                    health.TakeDamage(1); // Giảm máu của Player
+                }
+            }
+            StartCoroutine(CollisionCooldown());
         }
     }
 
@@ -51,6 +64,13 @@ public class GoombaCollision : MonoBehaviour
             rb.isKinematic = true;
         }
         Destroy(gameObject, 0.3f);
+    }
+
+    private IEnumerator CollisionCooldown()
+    {
+        canCollide = false; // Đặt cờ không cho phép va chạm
+        yield return new WaitForSeconds(2f); // Chờ 2 giây
+        canCollide = true; // Cho phép va chạm trở lại
     }
 }
 

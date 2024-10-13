@@ -26,11 +26,15 @@ public class BotMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (!isDead && collision.gameObject.CompareTag("Player") == false)
-        {
-            movingLeft = !movingLeft;
-            Flip();
-        }
+        // if (!isDead && collision.gameObject.CompareTag("Player") == false)
+        // {
+        //     movingLeft = !movingLeft;
+        //     Flip();
+        // }else{
+
+        // }
+        movingLeft = !movingLeft;
+        Flip();
     }
 
     // Hàm lật đối tượng 
