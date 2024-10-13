@@ -28,7 +28,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Home()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("HomeScreen");
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game....");
+        Application.Quit();
     }
 
     public void Continue()
