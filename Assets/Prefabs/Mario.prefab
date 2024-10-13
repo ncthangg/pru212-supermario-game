@@ -209,7 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  healthBar: {fileID: 0}
+  iFramesDuration: 2
+  numberOfFlases: 3
 --- !u!114 &3670959994884381280
 MonoBehaviour:
   m_ObjectHideFlags: 0
