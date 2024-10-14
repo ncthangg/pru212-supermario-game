@@ -262,19 +262,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2207720078521095687, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5971889434865794666}
+    - target: {fileID: 2207720078521095687, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207720078521095687, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2624017008875266938, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1776135048}
+    - target: {fileID: 3897342308575940847, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5971889434865794666}
+    - target: {fileID: 3897342308575940847, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3897342308575940847, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5290609822779414745, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
       propertyPath: m_Name
       value: HomeScreen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3510125151142251987, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+--- !u!114 &5971889434865794666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6191427801132127054, guid: e93b27b0d25cd3643bfa53394b52bb98, type: 3}
+  m_PrefabInstance: {fileID: 5971889434865794665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fcf001b1c0df64c905171b5d25f04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

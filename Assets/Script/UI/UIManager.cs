@@ -3,15 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("UI Collections")]
     [SerializeField] private GameObject gameOverUI;
-    [SerializeField] private GameObject gameWinUI;
     [SerializeField] private GameObject pauseMenu;
+    [Header("Home Screen")]
+    [SerializeField] GameObject startButton;
+    [SerializeField] GameObject quitButton;
     public Progress progress;
     public static bool gamePaused = false;
 
-    private void Start()
+    void Start()
     {
-        pauseMenu.SetActive(false);
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
     }
     void Update()
     {
@@ -28,37 +34,31 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+    public void Home()
+    {
+        Debug.Log("home");
+        SceneManager.LoadScene("HomeScreen");
+    }
+    public void StartGame()
+    {
+        Debug.Log("start");
+        var nowMap = progress.GetNowMap();
+        SceneManager.LoadScene(nowMap);
+    }
     public void WinGame()
     {
         Debug.Log("win");
-        gameWinUI.SetActive(true);
     }
     public void GameOver()
     {
         Debug.Log("lose");
         gameOverUI.SetActive(true);
     }
-    public void StartGame()
-    {
-        Debug.Log("start");
-        SceneManager.LoadScene(progress.GetNowMap());
-    }
+
     public void Restart()
     {
         Debug.Log("restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    public void Home()
-    {
-        Debug.Log("home");
-        SceneManager.LoadScene("HomeScreen");
-    }
-    public void Continue()
-    {
-        Debug.Log("continue");
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
-        gamePaused = false;
     }
     public void Pause()
     {
@@ -67,6 +67,14 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         gamePaused = true;
     }
+    public void Continue()
+    {
+        Debug.Log("continue");
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+        gamePaused = false;
+    }
+
     public void Exit()
     {
         Application.Quit();

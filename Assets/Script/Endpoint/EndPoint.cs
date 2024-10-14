@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndPoint : MonoBehaviour
 {
     public SaveManager saveManager;
-    private int NextMap;
+    public GameObject winGameUI;
+    private int nextMap;
     void Start()
     {
-        NextMap = saveManager.progress.GetNextMap();
+        nextMap = saveManager.progress.GetNextMap();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,13 +23,19 @@ public class EndPoint : MonoBehaviour
             if (playerAnimator != null)
             {
                 player.StopMovement();
-                // Debug.Log("player animator is not null");
-                // playerAnimator.SetTrigger("win");
             }
 
-            saveManager.CompleteMap(NextMap);
+            saveManager.CompleteMap(nextMap);
 
-            StartCoroutine(WaitAndLoadNextLevel(5f));
+            if (nextMap > 2) // Kiểm tra nếu đang ở map cuối cùng
+            {
+                ShowWinGameUI();
+                saveManager.CompleteGame();
+            }
+            else
+            {
+                StartCoroutine(WaitAndLoadNextLevel(5f));
+            }
         }
     }
 
@@ -41,6 +49,12 @@ public class EndPoint : MonoBehaviour
     public void NextLv()
     {
         Debug.Log("start");
-        SceneManager.LoadScene(NextMap);
+        SceneManager.LoadScene(nextMap);
     }
+
+    private void ShowWinGameUI()
+    {
+        winGameUI.SetActive(true);
+    }
+
 }
