@@ -26,11 +26,13 @@ public class KoopaMovement : MonoBehaviour
     {
         if (!isShell)
         {
-            if (collision.gameObject.CompareTag("Player") == false)
-            {
-                movingLeft = !movingLeft;
-                Flip();
-            }
+            //if (collision.gameObject.CompareTag("Player") == false)
+            //{
+            //    movingLeft = !movingLeft;
+            //    Flip();
+            //}
+            movingLeft = !movingLeft;
+            Flip();
         }
     }
 

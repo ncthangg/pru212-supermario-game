@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8133174321723594657}
   - component: {fileID: 8832728103388579530}
   - component: {fileID: 2115881975046040133}
+  - component: {fileID: 420867149351837856}
   m_Layer: 10
   m_Name: Goomba
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6230934252433915257}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.95, y: -3.52, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -20.37331, y: 0.51619864, z: -0.38441387}
   m_LocalScale: {x: 4.3517, y: 4.3517, z: 4.3517}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,3 +211,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 8133174321723594657}
   bounceForce: 10
+--- !u!114 &420867149351837856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230934252433915257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b15060957d61f64b82f07879310ac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
