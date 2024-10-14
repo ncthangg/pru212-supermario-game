@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject gameWinUI;
     [SerializeField] private GameObject pauseMenu;
     public Progress progress;
     public static bool gamePaused = false;
@@ -26,6 +27,11 @@ public class UIManager : MonoBehaviour
                 Continue();
             }
         }
+    }
+    public void WinGame()
+    {
+        Debug.Log("win");
+        gameWinUI.SetActive(true);
     }
     public void GameOver()
     {
