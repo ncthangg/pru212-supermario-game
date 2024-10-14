@@ -12,11 +12,13 @@ public class Health : MonoBehaviour
     protected Healthbar healthBar;
     protected UIManager uiManager;
 
+    private bool isInvulnerable = false; // Biến để kiểm tra trạng thái miễn nhiễm sát thương
+
+
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlases;
     //change color when hurt
-    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -24,17 +26,19 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         healthBar = FindObjectOfType<Healthbar>();
         uiManager = FindObjectOfType<UIManager>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(float damage)
     {
+        if (isInvulnerable) return;
+
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
         if (currentHealth > 0)
         {
             //hurt
             anim.SetTrigger("hurt");
             healthBar.SetHealth(currentHealth);
+            StartCoroutine(InvulnerableCoroutine());
         }
         else
         {
@@ -50,25 +54,17 @@ public class Health : MonoBehaviour
         }
     }
 
+    private IEnumerator InvulnerableCoroutine()
+    {
+        isInvulnerable = true;
+        yield return new WaitForSeconds(2f); // Đợi 2 giây
+        isInvulnerable = false;
+    }
     //test take dmg
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
             TakeDamage(1);
-    }
-
-    private IEnumerator Invunerability()
-    {//invunerability duration
-        Physics2D.IgnoreLayerCollision(3, 10, true);
-        for (int i = 0; i < numberOfFlases; i++)
-        {
-            spriteRenderer.color = new Color(1, 0, 0, 0.5f);
-            yield return new WaitForSeconds(iFramesDuration / (numberOfFlases*2));
-            spriteRenderer.color = Color.white;
-            yield return new WaitForSeconds(iFramesDuration / (numberOfFlases * 2));
-        }
-        Physics2D.IgnoreLayerCollision(3, 10, false);
     }
 
     public void AddHealth(float value)
