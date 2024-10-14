@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("start");
+        Time.timeScale = 1.0f;  
         SceneManager.LoadScene(progress.GetNowMap());
     }
     public void Restart()

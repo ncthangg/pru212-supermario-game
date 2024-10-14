@@ -17,6 +17,7 @@ public class StartMenu : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Lv1");
     }
     public void QuitGame()
