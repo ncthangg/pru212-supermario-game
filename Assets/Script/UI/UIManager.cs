@@ -12,6 +12,19 @@ public class UIManager : MonoBehaviour
     public Progress progress;
     public static bool gamePaused = false;
 
+    [SerializeField] private AudioClip gameOverSound;
+    private AudioSource bgmAudioSource;
+    private AudioSource gameOverAudioSource;
+
+    private void Awake()
+    {
+        // Get the BGM AudioSource from the main camera
+        bgmAudioSource = Camera.main.GetComponent<AudioSource>();
+
+        // Add an AudioSource component for the game over sound
+        gameOverAudioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     void Start()
     {
         if (pauseMenu != null)
@@ -52,6 +65,11 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("lose");
+        // Stop the BGM
+        bgmAudioSource.Stop();
+
+        // Play the game over sound
+        gameOverAudioSource.PlayOneShot(gameOverSound);
         gameOverUI.SetActive(true);
     }
 
