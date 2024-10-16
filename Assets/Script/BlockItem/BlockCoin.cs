@@ -45,11 +45,6 @@ public class BlockCoin : MonoBehaviour
     public void AddCoin()
     {
         coins++;
-        if(coins == 100)
-        {
-            AddLife();
-            coins = 0;
-        }
     }
 
     public void AddLife()
