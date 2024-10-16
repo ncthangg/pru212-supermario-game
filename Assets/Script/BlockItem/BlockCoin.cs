@@ -4,6 +4,8 @@ using UnityEngine;
 public class BlockCoin : MonoBehaviour
 {
     public static BlockCoin Instance { get; private set; }
+
+    public int coinValue = 10; // Giá tr? c?a coin, m?c ??nh 10 ?i?m
     public int coins {  get; private set; }
     public int lives { get; private set; }
     private void Start()
@@ -20,6 +22,10 @@ public class BlockCoin : MonoBehaviour
 
         yield return Move(restingPosition, animatedPosition);
         yield return Move(animatedPosition, restingPosition);
+
+        // Thêm ?i?m sau khi coin xu?t hi?n
+        ScoreManager.Instance.AddPoints(coinValue);
+
 
         Destroy(gameObject);
     }
