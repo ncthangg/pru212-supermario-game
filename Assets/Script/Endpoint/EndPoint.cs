@@ -29,11 +29,13 @@ public class EndPoint : MonoBehaviour
 
             if (nextMap > 2) // Kiểm tra nếu đang ở map cuối cùng
             {
-                ShowWinGameUI();
                 saveManager.CompletedGame();
+                StartCoroutine(WaitAndLoadWingame(3f));
+                //Destroy(collision.gameObject);
             }
             else
             {
+                //Destroy(collision.gameObject);
                 StartCoroutine(WaitAndLoadNextLevel(3f));
             }
         }
@@ -46,6 +48,11 @@ public class EndPoint : MonoBehaviour
         NextLv();
     }
 
+    private IEnumerator WaitAndLoadWingame(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        ShowWinGameUI();
+    }
     public void NextLv()
     {
         Debug.Log("start");

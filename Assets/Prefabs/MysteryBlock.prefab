@@ -144,5 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 5989138232521266192, guid: 86822ada9b463cb48b5c5816ff9b217a, type: 3}
-  emptyBlock: {fileID: 0}
+  emptyBlock: {fileID: 21300000, guid: 1fff73eb948ea4345a2c4af26192db12, type: 3}
   maxHits: 1

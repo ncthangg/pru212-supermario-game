@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
     private IEnumerator InvulnerableCoroutine()
     {
         isInvulnerable = true;
-        yield return new WaitForSeconds(1f); // Đợi 2 giây
+        yield return new WaitForSeconds(1f); // Đợi ... giây
         isInvulnerable = false;
     }
     //test take dmg

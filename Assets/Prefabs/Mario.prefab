@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5428358247889117360}
   - component: {fileID: 4616788366154687388}
   - component: {fileID: 3670959994884381280}
+  - component: {fileID: 5050774841891286201}
   m_Layer: 3
   m_Name: Mario
   m_TagString: Player
@@ -209,8 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  iFramesDuration: 2
-  numberOfFlases: 3
 --- !u!114 &3670959994884381280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f081a2b771fa141835296d0946274a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5050774841891286201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916700309406391627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaea291982400242856147b7a47dfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
