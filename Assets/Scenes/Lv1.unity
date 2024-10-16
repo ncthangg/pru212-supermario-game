@@ -5250,6 +5250,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1217438328501724118, guid: 80cf0448e6318314d9e5b809f66add5a, type: 3}
+      propertyPath: winGameUI
+      value: 
+      objectReference: {fileID: 2073853985}
+    - target: {fileID: 1217438328501724118, guid: 80cf0448e6318314d9e5b809f66add5a, type: 3}
       propertyPath: saveManager
       value: 
       objectReference: {fileID: 1978266115}
@@ -10961,6 +10965,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+--- !u!1 &2073853985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3391962316972079645, guid: daf159a95adda904cb79bcbbe79d7504, type: 3}
+  m_PrefabInstance: {fileID: 2073853984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2094039437
 GameObject:
   m_ObjectHideFlags: 0

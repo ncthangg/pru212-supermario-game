@@ -15,10 +15,10 @@ public class Health : MonoBehaviour
     private bool isInvulnerable = false; // Biến để kiểm tra trạng thái miễn nhiễm sát thương
 
 
-    [Header("iFrames")]
-    [SerializeField] private float iFramesDuration;
-    [SerializeField] private int numberOfFlases;
-    //change color when hurt
+    // [Header("iFrames")]
+    // [SerializeField] private float iFramesDuration;
+    // [SerializeField] private int numberOfFlases;
+    // //change color when hurt
 
     private void Awake()
     {
@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
     private IEnumerator InvulnerableCoroutine()
     {
         isInvulnerable = true;
-        yield return new WaitForSeconds(2f); // Đợi 2 giây
+        yield return new WaitForSeconds(1f); // Đợi 2 giây
         isInvulnerable = false;
     }
     //test take dmg

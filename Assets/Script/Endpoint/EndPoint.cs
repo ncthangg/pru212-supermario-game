@@ -25,21 +25,21 @@ public class EndPoint : MonoBehaviour
                 player.StopMovement();
             }
 
-            saveManager.CompleteMap(nextMap);
+            saveManager.CompletedMap(nextMap);
 
             if (nextMap > 2) // Kiểm tra nếu đang ở map cuối cùng
             {
                 ShowWinGameUI();
-                saveManager.CompleteGame();
+                saveManager.CompletedGame();
             }
             else
             {
-                StartCoroutine(WaitAndLoadNextLevel(5f));
+                StartCoroutine(WaitAndLoadNextLevel(3f));
             }
         }
     }
 
-    // Coroutine để đợi 5 giây trước khi gọi NextLv()
+    // Coroutine để đợi 3 giây trước khi gọi NextLv()
     private IEnumerator WaitAndLoadNextLevel(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
