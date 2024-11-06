@@ -48,7 +48,7 @@ public class GoombaCollision : MonoBehaviour
         Dead = true;
         Animator.SetBool("IsDie", true);
 
-        GoombaCollision botMovement = GetComponent<GoombaCollision>();
+        BotMovement botMovement = GetComponent<BotMovement>();
         if (botMovement != null)
         {
             botMovement.isDead = true;  // Ngừng di chuyển

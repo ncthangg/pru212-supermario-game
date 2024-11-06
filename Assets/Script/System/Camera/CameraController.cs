@@ -21,7 +21,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float aheadDistance;
     [SerializeField] private float cameraSpeed;
     private float lookAhead = 0;
-
     public Transform mapBounds;
     private Vector3 minLimit, maxLimit;
 

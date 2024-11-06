@@ -31,12 +31,11 @@ public class EndPoint : MonoBehaviour
             {
                 saveManager.CompletedGame();
                 StartCoroutine(WaitAndLoadWingame(3f));
-                //Destroy(collision.gameObject);
             }
             else
             {
-                //Destroy(collision.gameObject);
-                StartCoroutine(WaitAndLoadNextLevel(3f));
+                // StartCoroutine(WaitAndLoadNextLevel(3f));
+                NextLv();
             }
         }
     }

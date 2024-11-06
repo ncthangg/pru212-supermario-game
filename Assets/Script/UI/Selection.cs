@@ -18,7 +18,6 @@ public class Selection : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
             ChangPosition(1);
 
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Yes");

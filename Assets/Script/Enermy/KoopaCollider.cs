@@ -13,7 +13,7 @@ public class KoopaCollision : MonoBehaviour
     private KoopaMovement koopaMovement;
     private Rigidbody2D rb;
 
-                
+
     public void OnHeadJump(GameObject collision)
     {
         if (!isShell)
@@ -32,7 +32,7 @@ public class KoopaCollision : MonoBehaviour
         }
         StartCoroutine(CollisionCooldown());
     }
-   
+
 
     void PlayerBounce(GameObject player)
     {
@@ -52,7 +52,7 @@ public class KoopaCollision : MonoBehaviour
         KoopaMovement koopaMovement = GetComponent<KoopaMovement>();
         if (koopaMovement != null)
         {
-            koopaMovement.enabled = false; 
+            koopaMovement.enabled = false;
         }
 
         KoopaAttak koopaAtt = GetComponent<KoopaAttak>();
@@ -63,7 +63,7 @@ public class KoopaCollision : MonoBehaviour
         if (rb != null)
         {
             rb.velocity = Vector2.zero;  // Dừng chuyển động ngay lập tức
-            rb.isKinematic = true;       // Ngừng vật lý tạm thời để Koopa không bị rơi
+            rb.isKinematic = false;       // Ngừng vật lý tạm thời để Koopa không bị rơi
         }
 
         // Shell sẽ biến mất sau một thời gian
