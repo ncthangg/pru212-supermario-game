@@ -1,0 +1,109 @@
+Nguồn: 
++  https://youtube.com/playlist?list=PLgOEwFbvGm5o8hayFB6skAfa8Z-mw4dPV&si=snN84feryZID6Q80
++  https://www.youtube.com/playlist?list=PLqlFiJjSZ2x1mrMpSQgYdRm8PyWRTg6He
+
+
+Thắng:
++ Design 2 Map
++ UI wingame
+    private void ShowWinGameUI()
+    {
+        winGameUI.SetActive(true);
+    }
++ Lưu tiến trình chơi, qua màn:
+
+StartPoint: tạo object
+    void Start()
+    {
+        if (playerPrefab != null && spawnPoint != null)
+        {
+            Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+    }
+EndPoint: chạm điểm, lấy nextmap
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Animator playerAnimator = collision.GetComponent<Animator>();
+            Player player = collision.GetComponent<Player>();
+            if (playerAnimator != null)
+            {
+                player.StopMovement();
+            }
+
+            saveManager.CompletedMap(nextMap);
+
+            if (nextMap > 2) // Kiểm tra nếu đang ở map cuối cùng
+            {
+                saveManager.CompletedGame();
+                StartCoroutine(WaitAndLoadWingame(3f));
+            }
+            else
+            {
+                StartCoroutine(WaitAndLoadNextLevel(3f));
+            }
+        }
+    }
+// hàm đợi ...giây trước khi hành động
+     private IEnumerator WaitAndLoadNextLevel(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        NextLv();
+    }
+
+    private IEnumerator WaitAndLoadWingame(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        ShowWinGameUI();
+    }
+//load map lv sau
+    public void NextLv()
+    {
+        Debug.Log("start");
+        SceneManager.LoadScene(nextMap);
+    }
+
+SaveManager: lưu vào SO
+//khi hoàn thành map thì lưu lại map đã hoàn thành
+       public void CompletedMap(int mapIndex)
+    {
+        progress.lastPlayedMapIndex = mapIndex;
+        Debug.Log("Map updated: " + mapIndex);
+    }
+//khi hoàn thành game thì đặt lại quá trình chơi là 1
+    public void CompletedGame()
+    {
+        progress.lastPlayedMapIndex = 1;
+        Debug.Log("Map updated: " + progress.lastPlayedMapIndex);
+    }
+
++ UI game over
+    public void GameOver()
+    {
+        Debug.Log("lose");
+        // Stop the BGM
+        bgmAudioSource.Stop();
+
+        // Play the game over sound
+        gameOverAudioSource.PlayOneShot(gameOverSound);
+        gameOverUI.SetActive(true);
+    }
++ Design Health bar
+
+Tuấn Anh:
++ Mario
++ Health System
++ Item: Health Collection
+
+Bảo Thiên:
++ UI PauseGame
++ UI StartGame
++ Sound System
+
+Trần Minh Nhật: 
++ Bot: 2 con
+
+Hồ Nhật Quang
++ Box: 1 loại
++ Item: đồng xu
